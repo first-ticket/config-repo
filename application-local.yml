@@ -1,0 +1,5 @@
+# 로컬 환경에서 모든 서비스에 적용
+logging:
+  level:
+    root: DEBUG
+    org.springframework: INFO   # 스프링 내부 로그는 너무 많으니 INFO로 제한

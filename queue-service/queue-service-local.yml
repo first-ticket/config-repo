@@ -1,0 +1,6 @@
+# queue-service의 local 환경 설정
+server:
+  port: 8085
+
+sample:
+  message: "Hello from LOCAL queue-service"

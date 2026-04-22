@@ -1,0 +1,4 @@
+# queue-service에 환경 불문 항상 적용되는 설정
+spring:
+  application:
+    name: queue-service

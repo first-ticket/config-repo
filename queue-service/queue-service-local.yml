@@ -2,5 +2,9 @@
 server:
   port: 8085
 
+# 테스트용 암호화 값
+test:
+  secret: '{cipher}5d4fc8f6b37e998368ea703578f1cd42564fee31a10a7398fe9e8685438575a7'
+
 sample:
   message: "Hello from LOCAL queue-service"

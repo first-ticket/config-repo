@@ -1,5 +1,17 @@
 # 로컬 환경에서 모든 서비스에 적용
-logging:
-  level:
-    root: DEBUG
-    org.springframework: INFO   # 스프링 내부 로그는 너무 많으니 INFO로 제한
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/firstticket
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

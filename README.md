@@ -142,7 +142,7 @@ Kafka를 사용하는 서비스는 `application-kafka.yml` 프로파일을 inclu
 
 **적용 방법**
 
-Kafka를 사용하는 서비스의 공통 설정 파일(`{service-name}.yml`)에 추가합니다.
+Kafka를 사용하는 서비스의 `application.yml`에 추가합니다.
 ```yaml
 spring:
   profiles:

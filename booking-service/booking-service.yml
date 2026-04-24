@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: booking_schema
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    schemas: booking_schema
+    default-schema: booking_schema
+    create-schemas: true

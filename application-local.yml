@@ -1,7 +1,7 @@
 # 로컬 환경에서 모든 서비스에 적용
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/firstticket
+    url: jdbc:postgresql://localhost:5432/first_ticket
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

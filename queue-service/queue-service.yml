@@ -2,3 +2,8 @@
 spring:
   application:
     name: queue-service
+
+queue:
+  token:
+    waiting-ttl: PT30M           # ISO-8601 Duration: 30분
+    admission-batch-size: 100    # 한 번에 100명 입장 승인

@@ -1,4 +1,12 @@
 # user-service 운영환경 설정
 
-# keycloak
-# client-secret: 암호화 난수 사용예정
+eureka:
+  client:
+    tls:
+      enabled: true  # 운영 환경에서는  TLS 활성화
+
+keycloak:
+  server-url: ${KEYCLOAK_SERVER_URL}
+  client-secret: ${KEYCLOAK_CLIENT_SECRET}
+  admin-username: ${KEYCLOAK_ADMIN_USERNAME}
+  admin-password: ${KEYCLOAK_ADMIN_PASSWORD}

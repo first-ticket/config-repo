@@ -1,0 +1,11 @@
+# user-service local 전용 설정
+
+server:
+  port: 8081
+
+keycloak:
+  server-url: http://localhost:8180
+  client-secret: local-user-client-secret
+  admin-username: admin
+  admin-password: admin
+  email-verified: true

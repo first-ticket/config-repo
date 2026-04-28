@@ -14,4 +14,4 @@ spring:
     enabled: false
 
 toss:
-  secret-key: test_sk_6bJXmgo28e71a9Obm2JjVLAnGKWx
+  secret-key: '{cipher}41da203e17de7526e41751252bffc8e117f8f89bfd1a9db0705025573704e11845c0c5a99ac0afcc58778d6bda3d6b69518835a1534e4772df489054287007d5'

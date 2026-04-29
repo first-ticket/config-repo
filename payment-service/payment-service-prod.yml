@@ -11,6 +11,17 @@ spring:
       ddl-auto: validate
   flyway:
     enabled: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
 
 toss:
   secret-key: ${TOSS_SECRET_KEY}
+
+common:
+  messaging:
+    scheduler:
+      enabled: true
+
+feature:
+  internal-payments:
+    enabled: true

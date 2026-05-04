@@ -9,6 +9,6 @@ test:
 sample:
   message: "Hello from LOCAL queue-service"
   
-spring:
+queue:
   jwt:
     entry-token-ttl: PT60M        # 60 분

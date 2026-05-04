@@ -5,8 +5,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-  flyway:
-    enabled: false
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
     producer:

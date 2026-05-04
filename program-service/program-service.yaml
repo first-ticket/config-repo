@@ -9,9 +9,6 @@ spring:
         virtual:
             enabled: true
 
-    profiles:
-        active: local  # 기본 로컬 실행
-
     jpa:
         open-in-view: false
         properties:

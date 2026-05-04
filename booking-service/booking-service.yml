@@ -19,3 +19,7 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
+      
+booking:
+  token:
+    entry_secret: '{cipher}0023905ba005ccc3bf20992038adb7eee7abe7d60f0db11c98ded4cc3b8cee3ea3e69a25696a1300a80cea532e9ec3864701668f67e8ac54034244d2b1afd89b'

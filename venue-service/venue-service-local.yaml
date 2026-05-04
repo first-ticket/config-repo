@@ -2,49 +2,49 @@
 # venue-service-local.yaml
 # ──────────────────────────────────────────
 spring:
-    config:
-        activate:
-            on-profile: local
+  config:
+    activate:
+      on-profile: local
 
-    datasource:
-        url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_DATABASE:first_class}
-        username: ${DB_USERNAME}
-        password: ${DB_PASSWORD}
-        driver-class-name: org.postgresql.Driver
-        hikari:
-            maximum-pool-size: 5
-            minimum-idle: 2
-            connection-timeout: 30000
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_DATABASE:first_class}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 30000
 
-    jpa:
-        hibernate:
-            ddl-auto: create-drop
-        properties:
-            hibernate:
-                show_sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: true
 
-    flyway:
-        enabled: false
+  flyway:
+    enabled: false
 
-    kafka:
-        bootstrap-servers: localhost:9092
+  kafka:
+    bootstrap-servers: localhost:9092
 
 eureka:
-    client:
-        service-url:
-            defaultZone: http://localhost:8761/eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
 management:
-    tracing:
-        sampling:
-            probability: 1.0
+  tracing:
+    sampling:
+      probability: 1.0
 
 logging:
-    level:
-        com.firstticket: DEBUG
-        org.hibernate.SQL: DEBUG
-        org.hibernate.orm.jdbc.bind: TRACE
+  level:
+    com.firstticket: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
 
 feign:
-    program-service:
-        url: http://localhost:8082
+  program-service:
+    url: http://localhost:8082

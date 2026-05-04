@@ -49,3 +49,7 @@ logging:
         com.firstticket: DEBUG
         org.hibernate.SQL: DEBUG
         org.hibernate.orm.jdbc.bind: TRACE
+
+feign:
+    seat-service:
+        url: http://localhost:8083

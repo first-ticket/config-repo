@@ -13,10 +13,15 @@ spring:
     open-in-view: false
     properties:
       hibernate:
-        default_schema: venue
+        default_schema: program_schema
         format_sql: true
     hibernate:
       ddl-auto: validate
+
+  flyway:
+    schemas: program_schema
+    default-schema: program_schema
+    create-schemas: true
 
   kafka:
     producer:

@@ -19,7 +19,7 @@ spring:
       ddl-auto: validate
       
   flyway:
-    schemas: progrm_schema
+    schemas: program_schema
     default-schema: program_schema
     create-schemas: true
 

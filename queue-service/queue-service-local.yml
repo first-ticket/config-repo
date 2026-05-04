@@ -8,3 +8,6 @@ test:
 
 sample:
   message: "Hello from LOCAL queue-service"
+
+jwt:
+    entry-token-ttl: PT60M        # 60 분

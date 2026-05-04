@@ -2,14 +2,9 @@ server:
   port: 8084
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
   flyway:
     enabled: false
   kafka:

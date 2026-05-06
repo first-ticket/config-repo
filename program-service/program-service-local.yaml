@@ -6,6 +6,10 @@ spring:
     activate:
       on-profile: local
 
+  flyway:
+    baseline-on-migrate: true
+    create-schemas: true
+
   datasource:
     hikari:
       maximum-pool-size: 5

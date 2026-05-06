@@ -25,7 +25,6 @@ spring:
     default-schema: program_schema
     table: flyway_schema_history_program
     create-schemas: true
-    baseline-on-migrate: true
 
   kafka:
     producer:

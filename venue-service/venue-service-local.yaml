@@ -36,6 +36,11 @@ management:
     sampling:
       probability: 1.0
 
+common:
+  messaging:
+    scheduler:
+      enabled: false
+
 logging:
   level:
     com.firstticket: DEBUG

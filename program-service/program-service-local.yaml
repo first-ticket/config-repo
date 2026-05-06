@@ -47,6 +47,11 @@ logging:
     org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
 
+common:
+  messaging:
+    scheduler:
+      enabled: false
+
 feign:
   seat-service:
     url: http://localhost:8083

@@ -26,14 +26,6 @@ spring:
       hibernate:
         show_sql: false
 
-  flyway:
-    enabled: true
-    schemas: program
-    default-schema: program
-    locations: classpath:db/migration
-    baseline-on-migrate: false
-    out-of-order: false
-
   kafka:
     bootstrap-servers: ${KAFKA_SERVERS}
     producer:

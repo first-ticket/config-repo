@@ -19,9 +19,6 @@ spring:
       hibernate:
         show_sql: true
 
-  flyway:
-    enabled: false
-
   kafka:
     bootstrap-servers: localhost:9092
 

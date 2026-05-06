@@ -19,8 +19,11 @@ spring:
       ddl-auto: validate
       
   flyway:
+    enabled: true
+    locations: classpath:db/migration
     schemas: program_schema
     default-schema: program_schema
+    table: flyway_schema_history_program
     create-schemas: true
 
   kafka:

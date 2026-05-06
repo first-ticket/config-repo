@@ -34,5 +34,9 @@ feature:
   internal-payments:
     enabled: true
 
+payment:
+  success-url: ${PAYMENT_SUCCESS_URL}
+  fail-url: ${PAYMENT_FAIL_URL}
+
 toss:
   secret-key: '{cipher}e98def6b03fabc4c49aa9fe1852f90300a4f24de0359e52a9c3bfb26bc6c05b6a7cae83caac5020257351830da56ebaaab6b3cfebbb0b4ee2d8ec84da4a6a178%  '

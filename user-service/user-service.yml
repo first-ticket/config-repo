@@ -6,10 +6,8 @@ spring:
       ddl-auto: validate
     open-in-view: false
     properties:
-      # user-service 전용 스키마
-      # public 스키마 대신 user_schema를 기본으로 사용 (서비스 간 테이블 격리)
-      default_schema: user_schema
-      dialect: org.hibernate.dialect.PostgresSQLDialect
+      hibernate:
+        default_schema: user_schema
 
   flyway:
     enabled: true

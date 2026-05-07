@@ -11,7 +11,7 @@ spring:
 eureka:
   client:
     tls:
-      enabled: true  # 운영 환경에서는  TLS 활성화
+      enabled: false
 
 keycloak:
   server-url: ${KEYCLOAK_SERVER_URL}

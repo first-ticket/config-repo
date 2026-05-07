@@ -19,31 +19,112 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/api/v1/auth/**, /api/v1/users/**, /api/v1/admin/users/**, /api/v1/admin/host-requests/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: user-service
+                    fallbackUri: forward:/fallback/user-service
 
             - id: program-service
               uri: lb://program-service
               predicates:
                 - Path=/api/v1/programs/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: program-service
+                    fallbackUri: forward:/fallback/program-service
 
             - id: venue-service
               uri: lb://venue-service
               predicates:
                 - Path=/api/v1/venues/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: venue-service
+                    fallbackUri: forward:/fallback/venue-service
 
             - id: booking-service
               uri: lb://booking-service
               predicates:
                 - Path=/api/v1/bookings/**, /api/v1/tickets/**, /api/v1/admin/bookings/**, /api/v1/seats/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: booking-service
+                    fallbackUri: forward:/fallback/booking-service
 
             - id: payment-service
               uri: lb://payment-service
               predicates:
                 - Path=/api/v1/payments/**, /api/v1/admin/payments/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: payment-service
+                    fallbackUri: forward:/fallback/payment-service
 
             - id: queue-service
               uri: lb://queue-service
               predicates:
                 - Path=/api/v1/queues/**, /api/v1/admin/queues/**
+              filters:
+                - name: CircuitBreaker
+                  args:
+                    name: queue-service
+                    fallbackUri: forward:/fallback/queue-service
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        # 최근 N번의 호출을 기준으로 실패율 계산
+        sliding-window-size: 10
+        # 설정 실패율(%) 이상이면 OPEN 전환 (10번 중 5번 실패시 OPEN)
+        failure-rate-threshold: 50
+        # OPEN 상태 유지 시간 - 이후 HALF_OPEN으로 자동 전환
+        wait-duration-in-open-state: 10s
+        # HALF_OPEN 상태에서 허용할 요청 수
+        permitted-number-of-calls-in-half-open-state: 5
+        # CLOSED -> OPEN 전환 전 최소 호출 수 (그 이전에는 실패율 계산하지 않음)
+        minimum-number-of-calls: 5
+        # /actuator/health 서킷브레이커 상태 노출
+        register-health-indicator: true
+    instances:
+      # 각 서비스 인스턴스 - 개별 조정이 필요하면 base-config 외 항목 추가
+      user-service:
+        base-config: default
+      booking-service:
+        base-config: default
+      payment-service:
+        base-config: default   # 결제 도메인은 더 보수적 설정 검토 가능
+      program-service:
+        base-config: default
+      venue-service:
+        base-config: default
+      queue-service:
+        base-config: default
+
+  # 서킷브레이커가 OPEN되기 전에 느린 응답을 먼저 차단하는 타임아웃
+  timelimiter:
+    configs:
+      default:
+        # 다운스트림 서비스 응답 대기 상한 - 초과 시 TimeoutException 발생
+        timeout-duration: 3s
+    instances:
+      user-service:
+        base-config: default
+      booking-service:
+        base-config: default
+      payment-service:
+        timeout-duration: 10s   # 결제는 처리 시간이 길 수 있어 여유 부여
+      program-service:
+        base-config: default
+      venue-service:
+        base-config: default
+      queue-service:
+        base-config: default
 
 eureka:
   client:
@@ -57,3 +138,10 @@ management:
     web:
       exposure:
         include: health, info  # 기본값 - prod에서 prometheus 추가
+  endpoint:
+    health:
+      show-details: always # 개발환경에서는 when_authorized 적용 검토 필요
+  health:
+    circuitbreakers:
+      enabled: true
+# /actuator/health 응답으로 각 서비스의 CB (서킷브레이커) 상태 확인 가능

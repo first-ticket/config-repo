@@ -14,3 +14,12 @@ spring:
     schemas: payment_schema
     default-schema: payment_schema
     create-schemas: true
+
+kafka:
+  topics:
+    payment-completed: payment.completed
+    payment-failed: payment.failed
+    payment-refund-completed: payment.refund.completed
+    booking-refund: booking.refund.request
+    booking-cancel: booking.cancel.request
+    booking-compensation: booking.payment.compensation

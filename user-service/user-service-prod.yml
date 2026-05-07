@@ -1,4 +1,6 @@
 # user-service 운영환경 설정
+server:
+  port: 8080
 
 eureka:
   client:

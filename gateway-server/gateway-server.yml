@@ -1,0 +1,59 @@
+# gateway-server.yml - 공통 적용 기본 설정
+# 실행환경별 차이값은 gateway-server-dev.yml / gateway-server-prod.yml 에서 각각 오버라이드
+
+server:
+  port: 8080  # ECS는 ALB가 :80 → Task :8080 포워딩
+
+spring:
+  jackson:
+    time-zone: Asia/Seoul
+    serialization:
+      write-dates-as-timestamps: false  # "2026-04-23T14:40:19" 형태 출력
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/api/v1/auth/**, /api/v1/users/**, /api/v1/admin/users/**, /api/v1/admin/host-requests/**
+
+            - id: program-service
+              uri: lb://program-service
+              predicates:
+                - Path=/api/v1/programs/**
+
+            - id: venue-service
+              uri: lb://venue-service
+              predicates:
+                - Path=/api/v1/venues/**
+
+            - id: booking-service
+              uri: lb://booking-service
+              predicates:
+                - Path=/api/v1/bookings/**, /api/v1/tickets/**, /api/v1/admin/bookings/**, /api/v1/seats/**
+
+            - id: payment-service
+              uri: lb://payment-service
+              predicates:
+                - Path=/api/v1/payments/**, /api/v1/admin/payments/**
+
+            - id: queue-service
+              uri: lb://queue-service
+              predicates:
+                - Path=/api/v1/queues/**, /api/v1/admin/queues/**
+
+eureka:
+  client:
+    tls:
+      enabled: false
+  instance:
+    prefer-ip-address: true  # hostname 대신 IP 등록 (컨테이너 환경 대비)
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info  # 기본값 - prod에서 prometheus 추가

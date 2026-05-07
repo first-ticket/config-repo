@@ -1,0 +1,22 @@
+# gateway-server-dev.yml - 로컬 개발 환경 오버라이드
+# 로컬에서 실행 중인 Keycloak / Eureka 주소를 직접 지정
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 로컬 Keycloak 주소 (docker-compose로 8180 포트에서 실행)
+          jwk-set-uri: http://localhost:8180/realms/first-ticket/protocol/openid-connect/certs
+
+eureka:
+  client:
+    service-url:
+      # 로컬 Eureka 주소
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    # 개발 중 라우팅 / 필터 동작 확인을 위해 DEBUG 수준으로 설정
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.security: DEBUG

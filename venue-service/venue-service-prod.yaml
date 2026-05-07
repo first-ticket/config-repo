@@ -30,17 +30,6 @@ spring:
       properties:
         enable.idempotence: true
 
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI}
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URI}/eureka
-
 management:
   tracing:
     sampling:

@@ -88,7 +88,7 @@ resilience4j:
         # HALF_OPEN 상태에서 허용할 요청 수
         permitted-number-of-calls-in-half-open-state: 5
         # CLOSED -> OPEN 전환 전 최소 호출 수 (그 이전에는 실패율 계산하지 않음)
-        minimum-number-of-calls: 5
+        minimum-number-of-calls: 10
         # /actuator/health 서킷브레이커 상태 노출
         register-health-indicator: true
     instances:
@@ -137,7 +137,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info  # 기본값 - prod에서 prometheus 추가
+        include: health, info, prometheus
   endpoint:
     health:
       show-details: always # 개발환경에서는 when_authorized 적용 검토 필요

@@ -18,6 +18,16 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     listener:
       ack-mode: manual_immediate
+    spring:
+      datasource:
+        url: jdbc:postgresql://localhost:5432/first_ticket
+        username: postgres
+        password:
+      flyway:
+        enabled: true
+      jpa:
+        hibernate:
+          ddl-auto: validate
 
 toss:
   secret-key: '{cipher}41da203e17de7526e41751252bffc8e117f8f89bfd1a9db0705025573704e11845c0c5a99ac0afcc58778d6bda3d6b69518835a1534e4772df489054287007d5'

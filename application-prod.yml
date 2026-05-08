@@ -1,1 +1,21 @@
 # 운영 환경에서 모든 서비스에 적용
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${DB_NAME:first_ticket}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+
+# 각 서비스에 적용 후 config-repo에서는 유레카 설정 제거
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/

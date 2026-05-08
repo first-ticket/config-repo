@@ -1,0 +1,28 @@
+# gateway-server-prod.yml - 운영 환경 오버라이드
+# 민감한 주소값은 환경변수로 주입 (ECS Task Definition의 환경변수 섹션 등)
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 운영 Keycloak 주소. ECS Task 환경변수 KEYCLOAK_JWK_SET_URI 로 주입.
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI}
+
+eureka:
+  client:
+    service-url:
+      # 운영 Eureka 주소. ECS Task 환경변수 EUREKA_DEFAULT_ZONE 으로 주입.
+      defaultZone: ${EUREKA_DEFAULT_ZONE}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # 운영에서는 Prometheus 수집 엔드포인트 추가 노출
+        include: health, info, prometheus
+
+logging:
+  level:
+    root: WARN
+    com.firstticket: INFO  # 자체 서비스 로그만 INFO, 나머지는 WARN으로 노이즈 감소

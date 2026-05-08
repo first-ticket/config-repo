@@ -14,12 +14,9 @@ spring:
     schemas: booking_schema
     default-schema: booking_schema
     create-schemas: true
-
-  data:
-    redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
       
 booking:
   token:
     entry_secret: '{cipher}0023905ba005ccc3bf20992038adb7eee7abe7d60f0db11c98ded4cc3b8cee3ea3e69a25696a1300a80cea532e9ec3864701668f67e8ac54034244d2b1afd89b'
+    session-secret: '{cipher}b8adfc6bd4244fe6b4f96146de4f3f566a5cce3068945152b99a66a5acce2bf39083ec665470d9900d34805e0b16354ca25d8f6abd88369504575e4c90d0d611'
+    session-token-validity: 60m

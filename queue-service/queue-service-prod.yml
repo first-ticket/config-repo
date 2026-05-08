@@ -1,6 +1,7 @@
 # queue-service의 prod 환경 설정
 server:
   port: 8080
-
-sample:
-  message: "Hello from PROD queue-service"
+  
+queue:
+  jwt:
+    entry-token-ttl: PT1M        # 1분

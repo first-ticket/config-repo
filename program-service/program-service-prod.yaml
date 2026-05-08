@@ -26,14 +26,6 @@ spring:
       hibernate:
         show_sql: false
 
-  flyway:
-    enabled: true
-    schemas: program
-    default-schema: program
-    locations: classpath:db/migration
-    baseline-on-migrate: false
-    out-of-order: false
-
   kafka:
     bootstrap-servers: ${KAFKA_SERVERS}
     producer:
@@ -53,17 +45,6 @@ spring:
           max-active: 8
           max-idle: 8
           min-idle: 2
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI}
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URI}/eureka
 
 management:
   tracing:

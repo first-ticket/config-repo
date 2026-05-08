@@ -9,6 +9,12 @@ spring:
           # 운영 Keycloak 주소. ECS Task 환경변수 KEYCLOAK_JWK_SET_URI 로 주입.
           jwk-set-uri: ${KEYCLOAK_JWK_SET_URI}
 
+  data:
+    redis:
+      # 운영 Redis 주소 - Docker Compose 환경변수 REDIS_HOST로 주입
+      host: ${REDIS_HOST}
+      port: 6379
+
 eureka:
   client:
     service-url:

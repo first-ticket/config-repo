@@ -20,6 +20,6 @@ kafka:
     payment-completed: payment.completed
     payment-failed: payment.failed
     payment-refund-completed: payment.refund.completed
-    booking-refund: booking.refund.request
-    booking-cancel: booking.cancel.request
+    booking-expired: booking.expired
+    booking-cancel-requested: booking.cancel.requested
     booking-compensation: booking.payment.compensation

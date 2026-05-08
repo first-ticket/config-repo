@@ -8,6 +8,12 @@ spring:
         jwt:
           # 로컬 Keycloak 주소 (docker-compose로 8180 포트에서 실행)
           jwk-set-uri: http://localhost:8180/realms/first-ticket/protocol/openid-connect/certs
+  data:
+    redis:
+      # 로컬 개발 환경 Redis 주소
+      # Docker 기동 시 docker-compose.yml의 SPRING_DATA_REDIS_HOST 환경변수로 오버라이드
+      host: localhost
+      port: 6379
 
 eureka:
   client:

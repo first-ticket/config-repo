@@ -17,6 +17,8 @@ spring:
 
 eureka:
   client:
+    # 레지스트리 갱신 주기 단축 (기본 30초 → 로컬 테스트에서는 5초)
+    registry-fetch-interval-seconds: 5
     service-url:
       defaultZone: http://${EUREKA_SERVER_URL:localhost}:8761/eureka/
 

@@ -21,6 +21,7 @@ spring:
     properties:
       hibernate:
         show_sql: false
+        default_schema: program_schema
 
   flyway:
     enabled: true

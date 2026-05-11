@@ -20,13 +20,3 @@ spring:
     schemas: program_schema
     default-schema: program_schema
     table: flyway_schema_history_program
-
-server:
-  port: 8082
-
-
-feign:
-  seat-service:
-    url: http://localhost:8083
-  venue-service:
-    url: http://localhost:8086

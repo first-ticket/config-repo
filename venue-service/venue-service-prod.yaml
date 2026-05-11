@@ -31,3 +31,10 @@ logging:
   level:
     com.firstticket: INFO
     org.hibernate.SQL: WARN
+
+feign:
+  program-service:
+    url: http://program-service:8080
+
+server:
+  port: 8080

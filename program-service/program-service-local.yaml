@@ -46,3 +46,12 @@ common:
   messaging:
     scheduler:
       enabled: false
+
+feign:
+  seat-service:
+    url: http://localhost:8083
+  venue-service:
+    url: http://localhost:8086
+
+server:
+  port: 8082

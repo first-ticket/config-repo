@@ -23,8 +23,11 @@ spring:
       write-dates-as-timestamps: false
 
   datasource:
-    # PostgreSQL JDBC 드라이버 명시
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      connection-timeout: 10000
 
 eureka:
   client:

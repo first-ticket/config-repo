@@ -5,6 +5,13 @@ spring:
     baseline-on-migrate: true #로컬 최초 기동시 기존 DB baseline 생성
     baseline-version: 2
 
+  # 로컬 부하 테스트용 HikariCP 커넥션 풀 확장
+  datasource:
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      connection-timeout: 10000
+
 server:
   port: 8081
 

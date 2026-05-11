@@ -15,21 +15,15 @@ spring:
       max-lifetime: 1800000
       leak-detection-threshold: 60000
 
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 2
+
   jpa:
-    hibernate:
-      ddl-auto: create
     properties:
       hibernate:
         show_sql: false
         default_schema: program_schema
-
-  flyway:
-    enabled: false
-    locations: classpath:db/migration
-    schemas: program_schema
-    default-schema: program_schema
-    table: flyway_schema_history_program
-    create-schemas: true
 
   data:
     timeout: 2000ms # 연결 타임아웃 추가
@@ -39,10 +33,10 @@ spring:
         max-idle: 8
         min-idle: 2
 
-management:
+  # zipkin은 컨테이너 서비스 이름
   tracing:
     sampling:
-      probability: 0.1  # 운영 10% 샘플링
+      probability: 1 # 임시 테스트
 
 logging:
   level:

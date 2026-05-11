@@ -2,6 +2,14 @@
 # 로컬에서 실행 중인 Keycloak / Eureka 주소를 직접 지정
 
 spring:
+  cloud:
+    loadbalancer:
+      cache:
+        # LoadBalancer 캐시 TTL 단축 (기본 35초 → 5초)
+        # Caffeine이 classpath에 있을 때만 유효한 설정
+        # 운영에서는 기본값(35초) 유지
+        ttl: 5s
+
   security:
     oauth2:
       resourceserver:

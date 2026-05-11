@@ -12,3 +12,9 @@ sample:
 queue:
   jwt:
     entry-token-ttl: PT60M        # 60 분
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, info, metrics, prometheus, env, configprops

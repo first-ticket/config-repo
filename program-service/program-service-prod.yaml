@@ -7,10 +7,6 @@ spring:
       on-profile: prod
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_DATABASE}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 30
       minimum-idle: 5
@@ -26,25 +22,13 @@ spring:
       hibernate:
         show_sql: false
 
-  kafka:
-    bootstrap-servers: ${KAFKA_SERVERS}
-    producer:
-      acks: all
-      retries: 3
-      properties:
-        enable.idempotence: true
-
   data:
-    redis:
-      host: ${REDIS_HOST}
-      port: 6379
-      password: ${REDIS_PASSWORD}
-      timeout: 2000ms # 연결 타임아웃 추가
-      lettuce:
-        pool:
-          max-active: 8
-          max-idle: 8
-          min-idle: 2
+    timeout: 2000ms # 연결 타임아웃 추가
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 2
 
 management:
   tracing:

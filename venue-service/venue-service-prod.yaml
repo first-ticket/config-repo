@@ -22,14 +22,6 @@ spring:
       hibernate:
         show_sql: false
 
-  kafka:
-    bootstrap-servers: ${KAFKA_SERVERS}
-    producer:
-      acks: all
-      retries: 3
-      properties:
-        enable.idempotence: true
-
 management:
   tracing:
     sampling:

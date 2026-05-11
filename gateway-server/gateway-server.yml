@@ -84,7 +84,7 @@ resilience4j:
         # 설정 실패율(%) 이상이면 OPEN 전환 (10번 중 5번 실패시 OPEN)
         failure-rate-threshold: 50
         # OPEN 상태 유지 시간 - 이후 HALF_OPEN으로 자동 전환
-        wait-duration-in-open-state: 10s
+        wait-duration-in-open-state: 30s # 10s > 30s (테스트 간 회복시간 보장)
         # HALF_OPEN 상태에서 허용할 요청 수
         permitted-number-of-calls-in-half-open-state: 5
         # CLOSED -> OPEN 전환 전 최소 호출 수 (그 이전에는 실패율 계산하지 않음)
@@ -111,7 +111,7 @@ resilience4j:
     configs:
       default:
         # 다운스트림 서비스 응답 대기 상한 - 초과 시 TimeoutException 발생
-        timeout-duration: 3s
+        timeout-duration: 10s #3s > 10s (부하 테스트 중 타임아웃 방지)
     instances:
       user-service:
         base-config: default

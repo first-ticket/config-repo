@@ -17,14 +17,14 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: false
         default_schema: program_schema
 
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     schemas: program_schema
     default-schema: program_schema

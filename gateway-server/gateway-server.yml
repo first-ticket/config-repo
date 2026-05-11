@@ -134,13 +134,20 @@ eureka:
     prefer-ip-address: true  # hostname 대신 IP 등록 (컨테이너 환경 대비)
 
 management:
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
+  tracing:
+    sampling:
+      probability: 1.0 #로컬에서는 전체 샘플링. 운영 트래픽 많으면 0.1로 조정
   endpoints:
     web:
       exposure:
         include: health, info, prometheus
   endpoint:
     health:
-      show-details: always # 개발환경에서는 when_authorized 적용 검토 필요
+      # dev 프로파일에서는 always로 오버라이드
+      show-details: when_authorized
   health:
     circuitbreakers:
       enabled: true

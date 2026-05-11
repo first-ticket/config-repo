@@ -20,8 +20,17 @@ eureka:
     service-url:
       defaultZone: http://${EUREKA_SERVER_URL:localhost}:8761/eureka/
 
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # gateway: 라우트 목록 조회용 (/actuator/gateway/routes)
+        include: health, info, prometheus, gateway
+
 logging:
   level:
-    # 개발 중 라우팅 / 필터 동작 확인을 위해 DEBUG 수준으로 설정
     org.springframework.cloud.gateway: DEBUG
     org.springframework.security: DEBUG

@@ -21,3 +21,10 @@ spring:
     default-schema: program_schema
     table: flyway_schema_history_program
     create-schemas: true
+
+kafka:
+  topics:
+    schedule-created: schedule.created
+    program-created: program.created
+    program-time-updated: program.time.updated
+    program-cancelled: program.cancelled

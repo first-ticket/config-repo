@@ -114,17 +114,17 @@ resilience4j:
         timeout-duration: 10s #3s > 10s (부하 테스트 중 타임아웃 방지)
     instances:
       user-service:
-        base-config: default
+        timeout-duration: 10s
       booking-service:
-        base-config: default
+        timeout-duration: 10s
       payment-service:
         timeout-duration: 10s   # 결제는 처리 시간이 길 수 있어 여유 부여
       program-service:
-        base-config: default
+        timeout-duration: 10s
       venue-service:
-        base-config: default
+        timeout-duration: 10s
       queue-service:
-        base-config: default
+        timeout-duration: 10s
 
 eureka:
   client:
@@ -153,6 +153,7 @@ management:
 # /actuator/health 응답으로 각 서비스의 CB (서킷브레이커) 상태 확인 가능
 logging:
   level:
+    org.springframework.cloud.circuitbreaker.resilience4j: ERROR
     io.github.resilience4j.circuitbreaker: DEBUG
     org.springframework.cloud.circuitbreaker: DEBUG
     org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: WARN

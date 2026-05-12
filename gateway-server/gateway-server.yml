@@ -151,3 +151,7 @@ management:
     circuitbreakers:
       enabled: true
 # /actuator/health 응답으로 각 서비스의 CB (서킷브레이커) 상태 확인 가능
+logging:
+  level:
+    io.github.resilience4j.circuitbreaker: DEBUG
+    org.springframework.cloud.circuitbreaker: DEBUG

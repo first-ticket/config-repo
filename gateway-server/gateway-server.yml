@@ -76,6 +76,24 @@ spring:
                     fallbackUri: forward:/fallback/queue-service
 
 resilience4j:
+  bulkhead:
+    configs:
+      default:
+        maxConcurrentCalls: 200
+        maxWaitDuration: 0ms
+    instances:
+      user-service:
+        base-config: default
+      booking-service:
+        base-config: default
+      payment-service:
+        base-config: default
+      program-service:
+        base-config: default
+      venue-service:
+        base-config: default
+      queue-service:
+        base-config: default
   circuitbreaker:
     configs:
       default:

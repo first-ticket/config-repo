@@ -15,14 +15,11 @@ spring:
       max-lifetime: 1800000
 
   jpa:
-    hibernate:
-      ddl-auto: validate
     properties:
       hibernate:
         show_sql: false
-
-  kafka:
-    bootstrap-servers: ${KAFKA_SERVERS}
+        default_schema: program_schema
+        ddl-auto: create
 
 management:
   tracing:
@@ -33,3 +30,10 @@ logging:
   level:
     com.firstticket: DEBUG
     org.hibernate.SQL: DEBUG
+
+feign:
+  program-service:
+    url: http://program-service:8080
+
+server:
+  port: 8080

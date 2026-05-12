@@ -95,10 +95,6 @@ resilience4j:
       # 각 서비스 인스턴스 - 개별 조정이 필요하면 base-config 외 항목 추가
       user-service:
         base-config: default
-        sliding-window-size: 100
-        minimum-number-of-calls: 50
-        failure-rate-threshold: 70
-        wait-duration-in-open-state: 5s
       booking-service:
         base-config: default
       payment-service:

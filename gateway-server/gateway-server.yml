@@ -139,7 +139,7 @@ management:
       endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
   tracing:
     sampling:
-      probability: 1.0 #로컬에서는 전체 샘플링. 운영 트래픽 많으면 0.1로 조정
+      probability: 0 #로컬에서는 전체 샘플링. 운영 트래픽 많으면 0.1로 조정
   endpoints:
     web:
       exposure:

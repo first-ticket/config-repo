@@ -10,6 +10,7 @@ spring:
       hibernate:
         default_schema: booking_schema
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
 
   flyway:
     schemas: booking_schema

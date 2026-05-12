@@ -100,13 +100,13 @@ resilience4j:
         # 최근 N번의 호출을 기준으로 실패율 계산
         sliding-window-size: 200
         # 설정 실패율(%) 이상이면 OPEN 전환 (10번 중 5번 실패시 OPEN)
-        failure-rate-threshold: 90
+        failure-rate-threshold: 50
         # OPEN 상태 유지 시간 - 이후 HALF_OPEN으로 자동 전환
-        wait-duration-in-open-state: 3s
+        wait-duration-in-open-state: 10s
         # HALF_OPEN 상태에서 허용할 요청 수
         permitted-number-of-calls-in-half-open-state: 5
         # CLOSED -> OPEN 전환 전 최소 호출 수 (그 이전에는 실패율 계산하지 않음)
-        minimum-number-of-calls: 150
+        minimum-number-of-calls: 20
         # /actuator/health 서킷브레이커 상태 노출
         register-health-indicator: true
     instances:
@@ -157,7 +157,7 @@ management:
       endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
   tracing:
     sampling:
-      probability: 0 #로컬에서는 전체 샘플링. 운영 트래픽 많으면 0.1로 조정
+      probability: 0.1 #로컬에서는 전체 샘플링. 운영 트래픽 많으면 0.1로 조정
   endpoints:
     web:
       exposure:

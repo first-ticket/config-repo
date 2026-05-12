@@ -14,21 +14,17 @@ spring:
       idle-timeout: 600000
       max-lifetime: 1800000
 
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 2
+
   jpa:
-    hibernate:
-      ddl-auto: validate
     properties:
       hibernate:
         show_sql: false
-
-  kafka:
-    bootstrap-servers: ${KAFKA_SERVERS}
-
-  data:
-    redis:
-      host: ${REDIS_HOST}
-      port: 6379
-      password: ${REDIS_PASSWORD}
+        default_schema: program_schema
+    hibernate:
+      ddl-auto: create
 
 management:
   tracing:
@@ -39,3 +35,12 @@ logging:
   level:
     com.firstticket: DEBUG
     org.hibernate.SQL: DEBUG
+
+feign:
+  seat-service:
+    url: http://seat-service:8080
+  venue-service:
+    url: http://venue-service:8080
+
+server:
+  port: 8080

@@ -150,8 +150,7 @@ management:
         include: health, info, prometheus
   endpoint:
     health:
-      # dev 프로파일에서는 always로 오버라이드
-      show-details: when_authorized
+      show-details: always #보안필요한경우 when_authorized
   health:
     circuitbreakers:
       enabled: true

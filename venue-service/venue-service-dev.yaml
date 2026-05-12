@@ -19,7 +19,8 @@ spring:
       hibernate:
         show_sql: false
         default_schema: program_schema
-        ddl-auto: create
+    hibernate:
+      ddl-auto: create
 
 management:
   tracing:

@@ -36,7 +36,7 @@ spring:
   # zipkin은 컨테이너 서비스 이름
   tracing:
     sampling:
-      probability: 1 # 임시 테스트
+      probability: 0.1 # 임시 테스트
 
 logging:
   level:

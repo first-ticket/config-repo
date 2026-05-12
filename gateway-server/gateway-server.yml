@@ -155,3 +155,5 @@ logging:
   level:
     io.github.resilience4j.circuitbreaker: DEBUG
     org.springframework.cloud.circuitbreaker: DEBUG
+    org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: WARN
+    org.springframework.cloud.gateway.filter.GatewayMetricsFilter: WARN

@@ -1,15 +1,11 @@
 spring:
-
   jpa:
     open-in-view: false
     properties:
       hibernate:
         default_schema: payment_schema
         format_sql: true
-    show-sql: true
-    hibernate:
-      ddl-auto: validate
-      
+
   flyway:
     schemas: payment_schema
     default-schema: payment_schema

@@ -45,3 +45,9 @@ kafka:
     program-time-updated: program.time.updated
     program-cancelled: program.cancelled
     booking-cancel-confirmed: booking.cancel.confirmed
+    payment-completed: payment.completed
+    payment-failed: payment.failed
+    payment-refund-completed: payment.refund.completed
+    booking-expired: booking.expired
+    booking-cancel-requested: booking.cancel.requested
+    booking-compensation: booking.payment.compensation

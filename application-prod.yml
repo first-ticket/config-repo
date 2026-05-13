@@ -1,7 +1,7 @@
 # 운영 환경에서 모든 서비스에 적용
 spring:
   datasource:
-    url: jdbc:postgresql://${DB_HOST:postgres}:${DB_PORT:5432}/${DB_NAME:first_ticket}
+    url: jdbc:postgresql://${DB_HOST:first-ticket-postgres}:${DB_PORT:5432}/${DB_NAME:first_ticket}
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver

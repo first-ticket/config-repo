@@ -44,3 +44,4 @@ kafka:
     program-created: program.created
     program-time-updated: program.time.updated
     program-cancelled: program.cancelled
+    booking-cancel-confirmed: booking.cancel.confirmed

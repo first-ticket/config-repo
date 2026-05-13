@@ -37,3 +37,10 @@ spring:
 logging:
   level:
     org.apache.kafka.clients.NetworkClient: ERROR
+
+kafka:
+  topics:
+    schedule-created: schedule.created
+    program-created: program.created
+    program-time-updated: program.time.updated
+    program-cancelled: program.cancelled

@@ -27,10 +27,6 @@ common:
     scheduler:
       enabled: false
 
-feature:
-  internal-payments:
-    enabled: true
-
 payment:
   success-url: http://localhost:8084/api/v1/payments/confirm-redirect
   fail-url: http://localhost:8084/fail

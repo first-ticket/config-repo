@@ -20,10 +20,6 @@ common:
     scheduler:
       enabled: true
 
-feature:
-  internal-payments:
-    enabled: true
-
 management:
   zipkin:
     tracing:

@@ -35,8 +35,6 @@ eureka:
     fetch-registry: true
     tls:
       enabled: false
-  instance:
-    prefer-ip-address: false
 
 management:
   endpoints:

@@ -6,6 +6,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: queue_schema
+    open-in-view: false
+
+  flyway:
+    schemas: queue_schema
+    default-schema: queue_schema
+    create-schemas: true
     
 management:
   metrics:

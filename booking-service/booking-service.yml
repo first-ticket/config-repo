@@ -17,3 +17,9 @@ booking:
     entry_secret: '{cipher}0023905ba005ccc3bf20992038adb7eee7abe7d60f0db11c98ded4cc3b8cee3ea3e69a25696a1300a80cea532e9ec3864701668f67e8ac54034244d2b1afd89b'
     session-secret: '{cipher}f8fd3c67dc63414da0b57551c9fd06ffcbb89dfa6116341fc86a81fd3cab13f58f946f52197db195024047abbe90b7184a661554d5e84be7b65bebc463a56cce'
     session-token-validity: 60m
+
+messaging:
+  outbox:
+    enabled: true
+  inbox:
+    enabled: true

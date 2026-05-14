@@ -11,7 +11,8 @@ spring:
       hibernate:
         format_sql: true
 
-common:
-  messaging:
+messaging:
+  outbox:
+    enabled: true
     scheduler:
       enabled: false

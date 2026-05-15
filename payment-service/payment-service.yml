@@ -10,3 +10,11 @@ spring:
     schemas: payment_schema
     default-schema: payment_schema
     create-schemas: true
+
+messaging:
+  outbox:
+    enabled: true
+    scheduler:
+      enabled: true
+  inbox:
+    enabled: true

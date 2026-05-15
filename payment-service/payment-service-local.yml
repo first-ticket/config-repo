@@ -24,8 +24,12 @@ toss:
 
 common:
   messaging:
-    scheduler:
-      enabled: false
+    outbox:
+      enabled: true
+      scheduler:
+        enabled: false
+    inbox:
+      enabled: true
 
 payment:
   success-url: http://localhost:8084/api/v1/payments/confirm-redirect

@@ -5,7 +5,7 @@ spring:
     
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     properties:
       hibernate:
         default_schema: queue_schema
@@ -22,11 +22,10 @@ management:
       percentiles-histogram:
         http.server.requests: true
         
-# Outbox 스케줄러 비활성 (queue-service 는 Consumer 만)
-common:
-  messaging:
-    scheduler:
-      enabled: false
+# Inbox 활성화
+messaging:
+  inbox:
+    enabled: true
 
 queue:
   token:

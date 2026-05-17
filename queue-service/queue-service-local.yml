@@ -1,6 +1,10 @@
 # queue-service의 local 환경 설정
 server:
   port: 8085
+  
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
 
 queue:
   jwt:

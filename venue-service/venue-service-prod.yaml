@@ -23,7 +23,7 @@ spring:
     properties:
       hibernate:
         show_sql: false
-        default_schema: program_schema
+        default_schema: venue_schema
 
 management:
   tracing:

@@ -44,7 +44,7 @@ logging:
     org.hibernate.SQL: WARN
 
 feign:
-  booking-service:
+  seat-service:
     url: http://booking-service:8080
   venue-service:
     url: http://venue-service:8080

@@ -13,7 +13,7 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: validate
-      
+
   flyway:
     enabled: true
     locations: classpath:db/migration
@@ -21,3 +21,11 @@ spring:
     default-schema: program_schema
     table: flyway_schema_history_program
     create-schemas: true
+
+messaging:
+  outbox:
+    enabled: true
+    scheduler:
+      enabled: true
+  inbox:
+    enabled: true

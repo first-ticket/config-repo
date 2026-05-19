@@ -11,6 +11,12 @@ spring:
     schemas: booking_schema
     default-schema: booking_schema
     create-schemas: true
+    
+  datasource:
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      connection-timeout: 6000
       
 booking:
   token:

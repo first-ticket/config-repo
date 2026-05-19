@@ -21,7 +21,6 @@ spring:
                 allowedMethods: "*"
                 allowedHeaders: "*"
           routes:
-          routes:
             - id: user-service
               uri: lb://user-service
               predicates:
